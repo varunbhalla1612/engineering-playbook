@@ -1,2 +1,2 @@
 # engineering-playbook
-second brain for software engineering, AI infrastructure, and production lessons.
+Second brain for software engineering, AI infrastructure, and production lessons.
