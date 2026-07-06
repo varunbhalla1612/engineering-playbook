@@ -123,3 +123,83 @@ Think:
 
 ## 30-Second Interview Explanation
 Since order doesn't matter, I compare character frequencies instead of positions. I increment counts for characters in the first string and decrement them for the second. If every final count is zero, both strings contain exactly the same characters with the same frequencies.
+
+# Group Anagrams (LeetCode #49)
+
+## Pattern
+Hash Map + Frequency Counting
+
+## Recognition Triggers
+- Group strings by similarity
+- Find strings with identical character counts
+- Anagrams
+- Lowercase English letters
+- Return groups instead of True/False
+
+## Core Insight
+All anagrams have the **same character frequency**.
+
+Instead of sorting every string, create a 26-character frequency array and use it as a unique key for each group.
+
+## Thinking Process
+1. Create an empty hash map.
+2. For each word:
+   - Build a 26-length frequency array.
+   - Convert it to a tuple (hashable).
+   - Use the tuple as the dictionary key.
+3. Append the word to its corresponding group.
+4. Return all groups.
+
+## Generic Template
+
+```python
+groups = defaultdict(list)
+
+for word in words:
+    count = [0] * 26
+
+    for c in word:
+        count[ord(c) - ord('a')] += 1
+
+    groups[tuple(count)].append(word)
+
+return list(groups.values())
+```
+
+## Complexity
+- Time: O(n × k)
+- Space: O(n × k)
+
+where:
+- n = number of strings
+- k = maximum string length
+
+## Common Mistakes
+- Using a list as a dictionary key (lists are not hashable).
+- Converting the frequency array into a plain string without separators, which can create collisions.
+- Creating a frequency array of size 27 instead of 26.
+- Using list concatenation instead of append().
+
+## Related Problems
+- Valid Anagram
+- Find All Anagrams in a String
+- Ransom Note
+- Permutation in String
+- Top K Frequent Elements
+
+## Pattern Memory
+Group items by a **signature**.
+
+Possible signatures:
+- Sorted string → O(k log k)
+- Frequency tuple → O(k)
+
+When the alphabet size is fixed (26 lowercase letters), frequency counting is usually the optimal signature.
+
+## 30-Second Interview Explanation
+Anagrams are determined by character frequencies, not character order. For each word, I build a 26-element frequency array representing the count of each letter. I convert this array into a tuple so it can be used as a hash map key, then group all words with the same frequency signature. This avoids sorting each string and runs in O(n × k) time.
+
+- Dictionary keys must be hashable (tuple works, list doesn't).
+- ord(c) - ord('a') maps letters to indices 0–25.
+- Frequency arrays are a reusable pattern for character-count problems.
+- Grouping problems often reduce to creating a unique signature for each item.
