@@ -1,4 +1,4 @@
-# Two Sum (LeetCode #1)
+# 1. Two Sum (LeetCode #1)
 
 ## Pattern
 
@@ -55,7 +55,7 @@ Use a hash map to store previously seen numbers and their indices. For each elem
 
 
 
-# Valid Anagram (LeetCode #242)
+# 2. Valid Anagram (LeetCode #242)
 
 ## Pattern
 Frequency Counting (Hash Map)
@@ -124,7 +124,7 @@ Think:
 ## 30-Second Interview Explanation
 Since order doesn't matter, I compare character frequencies instead of positions. I increment counts for characters in the first string and decrement them for the second. If every final count is zero, both strings contain exactly the same characters with the same frequencies.
 
-# Group Anagrams (LeetCode #49)
+# 3. Group Anagrams (LeetCode #49)
 
 ## Pattern
 Hash Map + Frequency Counting
