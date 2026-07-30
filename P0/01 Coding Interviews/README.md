@@ -1,4 +1,4 @@
-# Coding Interviews
+# Coding Patterns
 
 Resources and notes for coding interview preparation.
 
